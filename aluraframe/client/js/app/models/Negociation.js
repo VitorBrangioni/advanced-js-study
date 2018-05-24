@@ -22,4 +22,8 @@ class Negociation {
         return this._value;
     }
 
+    get volume () {
+        return this._value * this._qt;
+    }
+
 } 
