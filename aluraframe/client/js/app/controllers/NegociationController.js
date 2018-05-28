@@ -16,10 +16,7 @@ class NegociationController {
         let date = new Date(...
             this._inputDate.value.split('-')
                 .map(function (data, i) {
-                    if (i === 1) {
-                        return data -1;
-                    }
-                    return data;
+                    return data - i % 2;
                 })
         );
 
