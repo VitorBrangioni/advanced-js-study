@@ -15,9 +15,7 @@ class NegociationController {
         // using spread operator and map
         let date = new Date(...
             this._inputDate.value.split('-')
-                .map(function (data, i) {
-                    return data - i % 2;
-                })
+                .map((data, i) => data - i % 2)
         );
 
         console.log(date);
