@@ -9,4 +9,20 @@ let novosNumeros = [];
 
 novosNumeros.push(...numeros.map( (data) => (data % 2) ? data * 2: data));
 
-console.log(novosNumeros);
+// console.log(novosNumeros);
+
+
+/* 
+2) Refatore e use arrow funciotion no cod. abaixo
+
+var aprovados = avaliacoes
+    .filter(function(prova) { return prova.nota >= 7; })
+    .map(function(prova) { return prova.aluno.nome;});
+
+console.log(aprovados); */
+
+var aprovados = avaliacoes
+    .filter( prova => prova.nota >= 7 )
+    .map( prova => prova.aluno.nome );
+
+console.log(aprovados); 
