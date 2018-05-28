@@ -7,11 +7,6 @@ let numeros = [3, 2, 11, 20, 8, 7];
 
 let novosNumeros = [];
 
-novosNumeros.push(...numeros.map( (data) => {
-    if (data % 2 !== 0) {
-        return data *2;
-    }
-    return data;
-}));
+novosNumeros.push(...numeros.map( (data) => (data % 2 === 0) ? data: data * 2 ));
 
 console.log(novosNumeros);
