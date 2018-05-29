@@ -1,4 +1,4 @@
-class NegociationController {
+class NegotiationController {
 
     constructor () {
         //bind: aponta this de querySelector para document
@@ -6,19 +6,19 @@ class NegociationController {
         this._inputDate = $('#data');
         this._inputQtd = $('#quantidade');
         this._inputValue = $('#valor');
+        this._negotiations = new ListNegotiation();
     }
 
     add(event) {
         // Nao deixar dar reload na pag
         event.preventDefault();
 
-        // using spread operator and map
-        let date = new Date(...
-            this._inputDate.value.split('-')
-                .map((data, i) => data - i % 2)
-        );
+        let negotiation = this._createnegotiation();
+        this._negotiations.add(negotiation);
+    }
 
-        console.log(date);
-
+    _createnegotiation() {
+        let date = DateHelper.stringToDate(this._inputDate.value);
+        return new Negotiation(date, this._inputQtd, this._inputValue);
     }
 }

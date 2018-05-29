@@ -1,5 +1,5 @@
 
-class Negociation {
+class Negotiation {
 
     constructor (date, qt, value) {
         this._date = new Date(date.getTime());
