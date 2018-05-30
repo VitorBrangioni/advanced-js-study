@@ -8,6 +8,7 @@ class NegotiationController {
         this._inputValue = $('#valor');
         this._negotiations = new ListNegotiation();
         this._negotiationView = new NegotiationView($('#negotiationView'));
+        this._messageView = new MessageView($('#messageView'));
         this._updateView();
     }
 
@@ -17,14 +18,16 @@ class NegotiationController {
 
         let negotiation = this._createnegotiation();
         this._negotiations.add(negotiation);
-        this._updateView();
+        this._updateView('Negotiation Created!', 'Congratulations! You are not stupid.. :)');
 
         this._cleanForm();
     }
 
-    _updateView () {
-        let template = this._negotiationView.template(this._negotiations);
-        this._negotiationView.update(template);
+    _updateView (msgTitle = '', msgBody = '') {
+        let negotiationsView = this._negotiationView.template(this._negotiations);
+        let messageView = this._messageView.template(new Message(msgTitle, msgBody));
+        this._negotiationView.update(negotiationsView);
+        this._messageView.update(messageView);
     }
 
     _createnegotiation() {
