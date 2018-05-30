@@ -12,7 +12,7 @@ class ListNegotiation {
     }
 
     get negotiations () {
-        return [].concat(negotiations);
+        return [].concat(this._negotiations);
     }
 
     _isNegotiation (data) {

@@ -7,6 +7,8 @@ class NegotiationController {
         this._inputQtd = $('#quantidade');
         this._inputValue = $('#valor');
         this._negotiations = new ListNegotiation();
+        this._negotiationView = new NegotiationView($('#negotiationView'));
+        this._updateView();
     }
 
     add(event) {
@@ -15,13 +17,19 @@ class NegotiationController {
 
         let negotiation = this._createnegotiation();
         this._negotiations.add(negotiation);
+        this._updateView();
 
         this._cleanForm();
     }
 
+    _updateView () {
+        let template = this._negotiationView.template(this._negotiations);
+        this._negotiationView.update(template);
+    }
+
     _createnegotiation() {
         let date = DateHelper.stringToDate(this._inputDate.value);
-        return new Negotiation(date, this._inputQtd, this._inputValue);
+        return new Negotiation(date, this._inputQtd.value, this._inputValue.value);
     }
 
     _cleanForm () {

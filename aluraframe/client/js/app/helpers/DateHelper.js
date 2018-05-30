@@ -8,7 +8,7 @@ class DateHelper {
         if (!DateHelper._validateDate(date)) {
             throw new Error('Invalid date format');
         }
-        return `${date.getDay}/${date.getMonth}/${date.getFullYear}`;
+        return `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
     }
 
     static stringToDate(date) {
